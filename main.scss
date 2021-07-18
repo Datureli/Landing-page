@@ -1,0 +1,281 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  max-height: 655px;
+}
+
+body {
+  overflow-x: hidden;
+  justify-content: center;
+  display: flex;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url(./green-shoe.png);
+  background-repeat: no-repeat;
+  box-shadow: 10px 5px 5px black;
+}
+.clock {
+  display: flex;
+  text-align: center;
+
+  &__item {
+    height: 105px;
+    margin: 0 0.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 13px;
+    background-color: lime;
+    color: #ffcc00;
+    font-family: Helvetica, sans-serif;
+    font-size: 70px;
+    box-shadow: 10px 10px 60px lime, -5px -5px 30px green;
+  }
+}
+
+.div2 {
+  border-top: 530px solid #ffcc00;
+  border-bottom: 100px solid transparent;
+  border-right: 1100px solid transparent;
+}
+
+.div3 span {
+  position: absolute;
+  top: 20px;
+  width: 170px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 900;
+  font-family: arial;
+  transform: rotate(-45deg);
+}
+
+.ribbon span {
+  width: 120px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  background: black;
+  font-family: arial;
+  font-weight: 900;
+  text-align: center;
+  font-size: 36px;
+  color: white;
+  justify-content: center;
+  text-decoration: line-through;
+  text-decoration-color: black;
+  transform: translate(50%, -90%);
+}
+.price span {
+  width: 120px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-20%, -10%);
+  background: #ff0000;
+  font-family: arial;
+  font-weight: 900;
+  text-align: center;
+  font-size: 36px;
+  color: white;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+button {
+  width: 300px;
+  height: 130px;
+  top: 10%;
+  left: 30%;
+  position: absolute;
+  transform: translate(-30%, 50%);
+  font-weight: 700;
+  background: transparent;
+  color: #fff;
+  border: 3px solid #fff;
+  border-radius: 30px;
+  font: 45px "Margarine", sans-serif;
+  outline: none;
+  cursor: pointer;
+  transition: 1.3s ease-in-out;
+  letter-spacing: 2px;
+  animation: bass 4s linear forwards;
+  animation-iteration-count: 1;
+  &:hover {
+    background: #df580a;
+  }
+}
+
+@keyframes bass {
+  20% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  30% {
+    transform: rotate(-3deg);
+  }
+  32% {
+    transform: rotate(2deg);
+  }
+  35% {
+    transform: rotate(0);
+  }
+}
+
+$breakpoints: (
+  "extrasmall": (
+    min-width: 400px,
+  ),
+  "small": (
+    min-width: 767px,
+  ),
+  "medium": (
+    min-width: 992px,
+  ),
+  "large": (
+    min-width: 1270px,
+  ),
+) !default;
+
+
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+.div2 {
+  @include respond-to('extrasmall') {
+    border-right: 700px solid transparent;
+  }
+  @include respond-to('small') {
+    border-right: 1100px solid transparent;
+  }
+  @include respond-to('medium') {
+    border-right: 1100px solid transparent;
+  }
+  @include respond-to('large') {
+    border-right: 1100px solid transparent;
+  }
+}
+.container {  
+  background-color: green;
+  @include respond-to("extrasmall") {
+    background-position-x: 5vh;
+    background-position-y: 61vh;
+    background-size: 480px 230px;
+  }
+
+  @include respond-to("small") {
+    background-position-x: 56vh;
+    background-position-y: 53vh;
+    background-size: 500px 250px;
+  }
+  @include respond-to("medium") {
+    background-position-x: 78vh;
+    background-position-y: 43vh;
+    background-size: 600px 300px;
+  }
+  @include respond-to("large") {
+    background-color: green;
+    background-size: auto;
+    background-position-x: 95vh;
+    background-position-y: 33vh;
+  }
+}
+button {
+  @include respond-to('extrasmall') {
+    padding: 20px;
+    left: 39%;
+  }
+}
+.clock {
+  @include respond-to("extrasmall") {
+    margin-left: 90px;
+    &__item {
+      height: 60px;
+      margin: 0 0.5rem;
+      margin-top: 55px;
+      font-size: 30px;
+    }
+
+    &__colon {
+      display: none;
+    }
+  }
+  @include respond-to("small") {
+    margin-left: 0;
+    &__item {
+      height: 90px;
+      margin: 0 0.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 13px;
+      background-color: lime;
+      color: #ffcc00;
+      font-family: Helvetica, sans-serif;
+      font-size: 50px;
+    }
+  }
+  @include respond-to("medium") {
+    &__item {
+      margin-left: 0;
+      height: 105px;
+      margin: 0 0.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 13px;
+      font-size: 70px;
+    }
+  }
+  @include respond-to("large") {
+    &__item {
+      margin-left: 0;
+      height: 105px;
+      margin: 0 0.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 13px;
+      background-color: lime;
+      color: #ffcc00;
+      font-family: Helvetica, sans-serif;
+      font-size: 70px;
+      box-shadow: 10px 10px 60px lime, -5px -5px 30px green;
+    }
+  }
+}
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    &__item {
+      margin-left: 0;
+      height: 105px;
+      margin: 0 0.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 13px;
+      font-family: Helvetica, sans-serif;
+      font-size: 40px;
+
+    }
+}

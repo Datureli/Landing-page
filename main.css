@@ -1,0 +1,326 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-height: 655px;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url(./green-shoe.png);
+  background-repeat: no-repeat;
+  -webkit-box-shadow: 10px 5px 5px black;
+          box-shadow: 10px 5px 5px black;
+}
+
+.clock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+.clock__item {
+  height: 105px;
+  margin: 0 0.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 13px;
+  background-color: lime;
+  color: #ffcc00;
+  font-family: Helvetica, sans-serif;
+  font-size: 70px;
+  -webkit-box-shadow: 10px 10px 60px lime, -5px -5px 30px green;
+          box-shadow: 10px 10px 60px lime, -5px -5px 30px green;
+}
+
+.div2 {
+  border-top: 530px solid #ffcc00;
+  border-bottom: 100px solid transparent;
+  border-right: 1100px solid transparent;
+}
+
+.div3 span {
+  position: absolute;
+  top: 20px;
+  width: 170px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 900;
+  font-family: arial;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.ribbon span {
+  width: 120px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  background: black;
+  font-family: arial;
+  font-weight: 900;
+  text-align: center;
+  font-size: 36px;
+  color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: line-through;
+  -webkit-text-decoration-color: black;
+          text-decoration-color: black;
+  -webkit-transform: translate(50%, -90%);
+          transform: translate(50%, -90%);
+}
+
+.price span {
+  width: 120px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translate(-20%, -10%);
+          transform: translate(-20%, -10%);
+  background: #ff0000;
+  font-family: arial;
+  font-weight: 900;
+  text-align: center;
+  font-size: 36px;
+  color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 5px;
+}
+
+button {
+  width: 300px;
+  height: 130px;
+  top: 10%;
+  left: 30%;
+  position: absolute;
+  -webkit-transform: translate(-30%, 50%);
+          transform: translate(-30%, 50%);
+  font-weight: 700;
+  background: transparent;
+  color: #fff;
+  border: 3px solid #fff;
+  border-radius: 30px;
+  font: 45px "Margarine", sans-serif;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: 1.3s ease-in-out;
+  transition: 1.3s ease-in-out;
+  letter-spacing: 2px;
+  -webkit-animation: bass 4s linear forwards;
+          animation: bass 4s linear forwards;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+button:hover {
+  background: #df580a;
+}
+
+@-webkit-keyframes bass {
+  20% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  25% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  30% {
+    -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+  }
+  32% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  35% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+}
+
+@keyframes bass {
+  20% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  25% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  30% {
+    -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+  }
+  32% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  35% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+}
+
+@media (min-width: 400px) {
+  .div2 {
+    border-right: 700px solid transparent;
+  }
+}
+
+@media (min-width: 767px) {
+  .div2 {
+    border-right: 1100px solid transparent;
+  }
+}
+
+@media (min-width: 992px) {
+  .div2 {
+    border-right: 1100px solid transparent;
+  }
+}
+
+@media (min-width: 1270px) {
+  .div2 {
+    border-right: 1100px solid transparent;
+  }
+}
+
+.container {
+  background-color: green;
+}
+
+@media (min-width: 400px) {
+  .container {
+    background-position-x: 5vh;
+    background-position-y: 61vh;
+    background-size: 480px 230px;
+  }
+}
+
+@media (min-width: 767px) {
+  .container {
+    background-position-x: 56vh;
+    background-position-y: 53vh;
+    background-size: 500px 250px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    background-position-x: 78vh;
+    background-position-y: 43vh;
+    background-size: 600px 300px;
+  }
+}
+
+@media (min-width: 1270px) {
+  .container {
+    background-color: green;
+    background-size: auto;
+    background-position-x: 95vh;
+    background-position-y: 33vh;
+  }
+}
+
+@media (min-width: 400px) {
+  button {
+    padding: 20px;
+    left: 39%;
+  }
+}
+
+@media (min-width: 400px) {
+  .clock {
+    margin-left: 90px;
+  }
+  .clock__item {
+    height: 60px;
+    margin: 0 0.5rem;
+    margin-top: 55px;
+    font-size: 30px;
+  }
+  .clock__colon {
+    display: none;
+  }
+}
+
+@media (min-width: 767px) {
+  .clock {
+    margin-left: 0;
+  }
+  .clock__item {
+    height: 90px;
+    margin: 0 0.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 13px;
+    background-color: lime;
+    color: #ffcc00;
+    font-family: Helvetica, sans-serif;
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .clock__item {
+    margin-left: 0;
+    height: 105px;
+    margin: 0 0.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 13px;
+    font-size: 70px;
+  }
+}
+
+@media (min-width: 1270px) {
+  .clock__item {
+    margin-left: 0;
+    height: 105px;
+    margin: 0 0.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 13px;
+    background-color: lime;
+    color: #ffcc00;
+    font-family: Helvetica, sans-serif;
+    font-size: 70px;
+    -webkit-box-shadow: 10px 10px 60px lime, -5px -5px 30px green;
+            box-shadow: 10px 10px 60px lime, -5px -5px 30px green;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  __item {
+    margin-left: 0;
+    height: 105px;
+    margin: 0 0.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 13px;
+    font-family: Helvetica, sans-serif;
+    font-size: 40px;
+  }
+}
+/*# sourceMappingURL=main.css.map */
