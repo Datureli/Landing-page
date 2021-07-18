@@ -2,22 +2,21 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  max-height: 655px;
+  max-height: 610px;
 }
-
 body {
   overflow-x: hidden;
   justify-content: center;
-  display: flex;
 }
 
 .container {
   width: 100%;
-  height: 100%;
-  position: relative;
+  height: auto;
+  position: fixed;
   background-image: url(./green-shoe.png);
   background-repeat: no-repeat;
   box-shadow: 10px 5px 5px black;
+
 }
 .clock {
   display: flex;
@@ -105,14 +104,14 @@ button {
   cursor: pointer;
   transition: 1.3s ease-in-out;
   letter-spacing: 2px;
-  animation: bass 4s linear forwards;
+  animation: rotateButton 4s linear forwards;
   animation-iteration-count: 1;
   &:hover {
     background: #df580a;
   }
 }
 
-@keyframes bass {
+@keyframes rotateButton {
   20% {
     transform: rotate(-5deg);
   }
@@ -131,21 +130,10 @@ button {
 }
 
 $breakpoints: (
-  "extrasmall": (
-    min-width: 320px,
-    max-width: 600px
-  ),
-  "small": (
-    min-width: 601px,
-    max-width: 991px
-  ),
-  "medium": (
-    min-width: 992px,
-    max-width: 1269px,
-  ),
-  "large": (
-    min-width: 1270px,
-  ),
+  'extrasmall': ( min-width: 300px ),
+  'small':  ( min-width:  767px ),
+  'medium': ( min-width:  992px ),
+  'large':  ( min-width: 1200px )
 ) !default;
 
 
@@ -166,26 +154,14 @@ $breakpoints: (
         + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
 }
-.div2 {
-  @include respond-to('extrasmall') {
-    border-right: 700px solid transparent;
-  }
-  @include respond-to('small') {
-    border-right: 1100px solid transparent;
-  }
-  @include respond-to('medium') {
-    border-right: 1100px solid transparent;
-  }
-  @include respond-to('large') {
-    border-right: 1100px solid transparent;
-  }
-}
+
 .container {  
   background-color: green;
   @include respond-to("extrasmall") {
     background-position-x: 5vh;
     background-position-y: 61vh;
     background-size: 480px 230px;
+
   }
 
   @include respond-to("small") {
@@ -199,17 +175,20 @@ $breakpoints: (
     background-size: 600px 300px;
   }
   @include respond-to("large") {
-    background-color: green;
     background-size: auto;
     background-position-x: 95vh;
     background-position-y: 33vh;
   }
 }
+.div2 {
+  border-top: 530px solid #ffcc00;
+  border-bottom: 100px solid transparent;
+  border-right: 1100px solid transparent;
+}
 button {
   @include respond-to('extrasmall') {
     padding: 20px;
     left: 39%;
-    font-size: 20px;
   }
 }
 .clock {
@@ -266,20 +245,4 @@ button {
       box-shadow: 10px 10px 60px lime, -5px -5px 30px green;
     }
   }
-}
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-    &__item {
-      margin-left: 0;
-      height: 105px;
-      margin: 0 0.5rem;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-top: 13px;
-      font-family: Helvetica, sans-serif;
-      font-size: 40px;
-
-    }
 }
