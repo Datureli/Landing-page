@@ -11,12 +11,13 @@ body {
 
 .container {
   width: 100%;
-  height: auto;
+
   position: fixed;
   background-image: url(./green-shoe.png);
   background-repeat: no-repeat;
   box-shadow: 10px 5px 5px black;
 
+  
 }
 .clock {
   display: flex;

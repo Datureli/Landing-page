@@ -15,7 +15,6 @@ body {
 
 .container {
   width: 100%;
-  height: auto;
   position: fixed;
   background-image: url(./green-shoe.png);
   background-repeat: no-repeat;
