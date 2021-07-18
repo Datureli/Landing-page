@@ -132,13 +132,16 @@ button {
 
 $breakpoints: (
   "extrasmall": (
-    min-width: 400px,
+    min-width: 320px,
+    max-width: 600px
   ),
   "small": (
-    min-width: 767px,
+    min-width: 601px,
+    max-width: 991px
   ),
   "medium": (
     min-width: 992px,
+    max-width: 1269px,
   ),
   "large": (
     min-width: 1270px,
@@ -206,6 +209,7 @@ button {
   @include respond-to('extrasmall') {
     padding: 20px;
     left: 39%;
+    font-size: 20px;
   }
 }
 .clock {
