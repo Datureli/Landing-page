@@ -2,7 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  max-height: 610px;
+  max-height: 650px;
 }
 body {
   overflow-x: hidden;
@@ -10,17 +10,18 @@ body {
 }
 
 .container {
-  width: 100%;
-
   position: fixed;
-  background-image: url(./green-shoe.png);
-  background-repeat: no-repeat;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  background: url(./green-shoe.png) fixed content-box padding-box no-repeat top
+    center / 100px 200px;
   box-shadow: 10px 5px 5px black;
-
-  
 }
 .clock {
+  transform: scale(0.8);
   display: flex;
+  
   text-align: center;
 
   &__item {
@@ -131,12 +132,19 @@ button {
 }
 
 $breakpoints: (
-  'extrasmall': ( min-width: 300px ),
-  'small':  ( min-width:  767px ),
-  'medium': ( min-width:  992px ),
-  'large':  ( min-width: 1200px )
+  "extrasmall": (
+    min-width: 300px,
+  ),
+  "small": (
+    min-width: 767px,
+  ),
+  "medium": (
+    min-width: 992px,
+  ),
+  "large": (
+    min-width: 1200px,
+  ),
 ) !default;
-
 
 /// @param {String} $breakpoint - Breakpoint name
 /// @require $breakpoints
@@ -156,94 +164,63 @@ $breakpoints: (
   }
 }
 
-.container {  
-  background-color: green;
-  @include respond-to("extrasmall") {
-    background-position-x: 5vh;
-    background-position-y: 61vh;
+@include respond-to("extrasmall") {
+  .container {
+    background-color: green;
+    background-position-x: auto;
+    background-position-y: 51vh;
     background-size: 480px 230px;
-
   }
-
-  @include respond-to("small") {
-    background-position-x: 56vh;
-    background-position-y: 53vh;
-    background-size: 500px 250px;
+  .div2 {
+    @include respond-to("extrasmall") {
+      border-top: 480px solid #ffcc00;
+      border-bottom: 0px solid transparent;
+      border-right: 600px solid transparent;
+    }
   }
-  @include respond-to("medium") {
-    background-position-x: 78vh;
-    background-position-y: 43vh;
-    background-size: 600px 300px;
-  }
-  @include respond-to("large") {
-    background-size: auto;
-    background-position-x: 95vh;
-    background-position-y: 33vh;
-  }
-}
-.div2 {
-  border-top: 530px solid #ffcc00;
-  border-bottom: 100px solid transparent;
-  border-right: 1100px solid transparent;
-}
-button {
-  @include respond-to('extrasmall') {
+  button {
     padding: 20px;
     left: 39%;
   }
+  .clock {
+    margin-top: 20px;
+    margin-left: 30px;
+  }
 }
-.clock {
-  @include respond-to("extrasmall") {
-    margin-left: 90px;
-    &__item {
-      height: 60px;
-      margin: 0 0.5rem;
-      margin-top: 55px;
-      font-size: 30px;
-    }
+@include respond-to("small") {
+  .container {
+  background-position-x: auto;
 
-    &__colon {
-      display: none;
-    }
+
   }
-  @include respond-to("small") {
-    margin-left: 0;
-    &__item {
-      height: 90px;
-      margin: 0 0.5rem;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-top: 13px;
-      background-color: lime;
-      color: #ffcc00;
-      font-family: Helvetica, sans-serif;
-      font-size: 50px;
-    }
+  .div2 {
+    border-top: 500px solid #ffcc00;
+    border-bottom: 100px solid transparent;
+    border-right: 800px solid transparent;
   }
-  @include respond-to("medium") {
-    &__item {
-      margin-left: 0;
-      height: 105px;
-      margin: 0 0.5rem;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-top: 13px;
-      font-size: 70px;
-    }
+}
+@include respond-to("medium") {
+  .container {
+  background-position-x: auto;
+
+
   }
-  @include respond-to("large") {
-    &__item {
-      margin-left: 0;
-      height: 105px;
-      margin: 0 0.5rem;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-top: 13px;
-      background-color: lime;
-      color: #ffcc00;
-      font-family: Helvetica, sans-serif;
-      font-size: 70px;
-      box-shadow: 10px 10px 60px lime, -5px -5px 30px green;
-    }
+  .div2 {
+    border-top: 500px solid #ffcc00;
+    border-bottom: 100px solid transparent;
+    border-right: 1100px solid transparent;
+  }
+}
+@include respond-to("large") {
+  .container {
+  
+    background-position-x: 110vh;
+    background-size: 580px 310px;
+  }
+
+  .div2 {
+    border-top: 530px solid #ffcc00;
+    border-bottom: 100px solid transparent;
+    border-right: 1300px solid transparent;
   }
 }
